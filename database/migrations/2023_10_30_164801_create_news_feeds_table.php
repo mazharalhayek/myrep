@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('place');
             $table->dateTime('newsDate');
-            $table->int('order');
+            $table->integer('order');
             $table->timestamps();
         });
     }
