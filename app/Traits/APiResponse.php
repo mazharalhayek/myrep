@@ -13,7 +13,7 @@ trait ApiResponse{
     protected function successResponse($data, $message = null, $code = 200)
 	{
 		return response()->json([
-			'status'  =>  'Success',
+			'status'  =>  $code,
 			'message' =>  $message,
 			'data'    =>  $data
 		], $code);
@@ -22,7 +22,7 @@ trait ApiResponse{
 	protected function errorResponse($message = null, $code)
 	{
 		return response()->json([
-			'status'  => 'Error',
+			'status'  => $code,
 			'message' =>  $message,
 			'data'    =>  null
 		], $code);
