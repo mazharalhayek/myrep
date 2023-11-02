@@ -9,9 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class Institutions extends Model
 {
     use HasFactory;
-    protected $fillable = ['category' , 'name' , 'order'];
+    protected $fillable = ['category_id' , 'name' , 'order'];
 
-    public function category (){
-        return $this->belongsTo(InstitutionCategory::class);
+
+    //each institution has one category.
+    public function category()
+    {
+        return $this->hasOne(InstitutionCategory::class, 'id','category_id');
     }
+
+
 }
