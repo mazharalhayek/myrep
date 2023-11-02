@@ -2,20 +2,21 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class InstCategoryRequest extends FormRequest
 {
 
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
     {
         return [
-            //
            'name' => ['required' , 'string' , 'min:5' , 'max:50']
         ];
     }

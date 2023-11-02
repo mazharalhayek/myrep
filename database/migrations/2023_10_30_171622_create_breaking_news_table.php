@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('filename');
             $table->string('path');
             $table->string('title');
-            $table->text('descrption');
+            $table->text('description');
             $table->timestamps();
         });
     }
