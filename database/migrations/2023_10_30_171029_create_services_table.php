@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
+            $table->binary('logo');//this column's type is "binary" because we want to store a logo in 
             $table->string('path');
             $table->string('name');
             $table->timestamps();

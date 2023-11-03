@@ -30,6 +30,7 @@ class InstitutionsController extends Controller
     public function store(InstitutionsRequest $request)
     {
         $val_request = $request->validated();
+        $newest_order = Institutions::max('order');//the record that has the maximum order value is the newest
 
         $existing_inst = Institutions::where('name',$val_request)->first();
         if($existing_inst)
@@ -38,7 +39,11 @@ class InstitutionsController extends Controller
             }
 
         else{
-            $newinstitution = Institutions::create($val_request);
+            $newinstitution = Institutions::create([
+                'name'        => $val_request['name'],
+                'category_id' => $val_request['category_id'],
+                'order'       => $newest_order + 1,//increase the order by one so it will become the newest
+            ]);
             if($newinstitution)
             {//check if it's added successfully.
                 return $this->successResponse($newinstitution,'Institution added successfully',201);
