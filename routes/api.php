@@ -4,9 +4,9 @@ use App\Http\Controllers\LatestNewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InstitutionsController;
-
-
-
+use App\Http\Controllers\InstitutionCategoryController;
+use App\Http\Controllers\NewsFeedController;
+use App\Http\Controllers\BreakingNewsController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -21,13 +21,20 @@ Route::get('/inst',[InstitutionsController::class,'index']);
 Route::get('/inst/{instid}',[InstitutionsController::class,'show']);
 //insert new institution
 Route::post('/inst',[InstitutionsController::class,'store']);
-//update existing institution
+//update existing institution\\
 Route::post('/inst/{instid}',[InstitutionsController::class,'update']);
-//remove existing institution
+//remove existing institution\\
 Route::delete('/inst/{instid}',[InstitutionsController::class,'destroy']);
 //remove all Institutions
 Route::get('/destroyall',[InstitutionsController::class,'destroy_all']);
 });
+//show all categories
+Route::get('/cate',[InstitutionCategoryController::class,'index']);
+//show all newsfeed
+Route::get('/newf',[NewsFeedController::class,'index']);
+//show all breakingnews
+Route::get('/breakn',[BreakingNewsController::class,'index']);
+
 
 
 
