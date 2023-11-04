@@ -6,12 +6,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class InstitutionResource extends JsonResource
 {
-   
+
     public function toArray($request)
     {
         return [
-            'name'     => $this->name  ,
-            
+            'Category' => new InstCategoryResource($this->category),
+            'name'     => $this->name
+
+
         ];
     }
 }
