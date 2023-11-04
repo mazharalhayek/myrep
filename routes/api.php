@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\LatestNewsController;
+use App\Http\Controllers\Api\LatestNewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InstitutionsController;
-use App\Http\Controllers\InstitutionCategoryController;
-use App\Http\Controllers\NewsFeedController;
-use App\Http\Controllers\BreakingNewsController;
+use App\Http\Controllers\Api\InstitutionsController;
+use App\Http\Controllers\Api\InstitutionCategoryController;
+use App\Http\Controllers\Api\NewsFeedController;
+use App\Http\Controllers\Api\BreakingNewsController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
