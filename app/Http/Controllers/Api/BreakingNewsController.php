@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\BreakingNewsResource;
 use App\Models\BreakingNews;
 use Illuminate\Http\Request;
 use App\Http\Requests\BreakingNewsRequest;
@@ -19,7 +20,7 @@ class BreakingNewsController extends Controller
           //in this condition we are checking if the breakingnews table is empty or not.
           if($breaknews->isNotEmpty())
           {
-              return $this->successResponse($breaknews,'Data fetched successfully',200);
+              return $this->successResponse(BreakingNewsResource::collection($breaknews),'Data fetched successfully',200);
           }
 
           return $this->errorResponse('there is no data in the table',401);

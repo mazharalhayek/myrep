@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\InstCategoryResource;
 use App\Models\InstitutionCategory;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponse;//here we imported the ApiResponse trait just for code modularity.
@@ -19,7 +20,7 @@ class InstitutionCategoryController extends Controller
         //in this condition we are checking if the categories table is empty or not.
         if($categories->isNotEmpty())
         {
-            return $this->successResponse($categories,'Data fetched successfully',200);
+            return $this->successResponse(InstCategoryResource::collection($categories),'Data fetched successfully',200);
         }
 
         return $this->errorResponse('there is no data in the table',401);
