@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('/create' , 'admin\latest news\create');
+Route::view('/index' , 'admin\latest news\index');
+
+Route::view('/create/n' , 'admin\news feed\create');
+
