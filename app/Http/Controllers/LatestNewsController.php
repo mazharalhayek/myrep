@@ -2,53 +2,83 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\LatestNewsResource;
-use App\Models\LatestNews;
-use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
 class LatestNewsController extends Controller
 {
-    use ApiResponse;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    //To show all the latest news
     public function index()
     {
         //
-        $latestNews = LatestNews::orderBy('id', 'desc')->get();
-        return $this ->successResponse(LatestNewsResource::collection($latestNews), 'Latest News Retrived Successfully');
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\LatestNews  $latestNews
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //To show a specific news by the id
     public function show($id)
     {
         //
-        try{
-            $news = LatestNews::find($id);
-            return $this->successResponse(new LatestNewsResource($news),'Retrived Successfully');
-        }catch(\Exception $exc){
-            return $this->errorResponse('The news is not found' , 404);
-        }
-
     }
 
-    //To show only few news on the main page
-   public function view(){
-        $latestNews = LatestNews::orderBy('id','desc')->take(4)->get();
-        return $this ->successResponse(LatestNewsResource::collection($latestNews), 'Latest News Retrived Successfully');
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-   }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

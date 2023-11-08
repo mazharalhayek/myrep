@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class InstitutionCategory extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name' , 'order'];
 
     public function Institutions(){
         return $this->hasMany(Institutions::class);

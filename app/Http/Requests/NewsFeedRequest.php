@@ -6,21 +6,15 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class NewsFeedRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
+    //Determine if the user is authorized to make this request.
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
+
+    //Get the validation rules that apply to the request.
     public function rules()
     {
         return [
@@ -32,4 +26,13 @@ class NewsFeedRequest extends FormRequest
             'order'    => ['numeric' , 'integer' , 'min:1' , 'between:1,20']
         ];
     }
+    
+     //if there is an error with the validation display the error as a Json response.
+     protected function failedValidation(Validator $validator)
+     {
+         throw new HttpResponseException(response()->json([
+             'message' => 'Validation Error',
+             'errors' => $validator->errors(),
+         ], 422));
+     }
 }

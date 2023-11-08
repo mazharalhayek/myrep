@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NewsFeed;
 use Illuminate\Http\Request;
 
 class NewsFeedController extends Controller
@@ -13,6 +12,16 @@ class NewsFeedController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }
@@ -31,10 +40,21 @@ class NewsFeedController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\NewsFeed  $newsFeed
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(NewsFeed $newsFeed)
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -43,10 +63,10 @@ class NewsFeedController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NewsFeed  $newsFeed
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NewsFeed $newsFeed)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -54,10 +74,10 @@ class NewsFeedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\NewsFeed  $newsFeed
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NewsFeed $newsFeed)
+    public function destroy($id)
     {
         //
     }
